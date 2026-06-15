@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 
 #include <QApplication>
+#include <QIcon>
 #include <QPalette>
 #include <QStyleFactory>
 
@@ -8,6 +9,7 @@ int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("mmtsmap-viewer"));
+    app.setWindowIcon(QIcon(QStringLiteral(":/icon.png")));
 
     // Dark Fusion palette so the timeline view (dark) blends with the chrome.
     app.setStyle(QStyleFactory::create(QStringLiteral("Fusion")));
