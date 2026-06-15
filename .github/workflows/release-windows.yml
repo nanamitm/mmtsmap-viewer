@@ -15,7 +15,8 @@ jobs:
     runs-on: windows-2022
 
     env:
-      QT_VERSION: '6.11.1'
+      # Pinned to a version the aqtinstall mirrors reliably serve for Windows.
+      QT_VERSION: '6.10.1'
 
     steps:
       - name: Checkout
