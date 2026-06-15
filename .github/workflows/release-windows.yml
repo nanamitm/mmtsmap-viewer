@@ -20,9 +20,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up MSVC
+        # No major newer than v1 exists; v1.13.0 is the latest.
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Install Qt for Windows
@@ -69,13 +70,13 @@ jobs:
           "WINDOWS_PACKAGE=$archive" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-x64-release
           path: ${{ env.WINDOWS_PACKAGE }}
 
       - name: Upload to GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: ${{ env.WINDOWS_PACKAGE }}
