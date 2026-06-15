@@ -51,6 +51,14 @@ cmake --build build-msvc --config Release
 # Run: build-msvc\Release\mmtsmap-viewer.exe [path\to\recording.mmtsmap]
 ```
 
+## Releases
+
+Pushing a `v*` tag (e.g. `v0.1.0`) triggers the
+[Release (Windows)](.github/workflows/release-windows.yml) workflow, which
+builds an x64 binary, bundles the Qt runtime with `windeployqt`, and attaches a
+ready-to-run `.zip` to the GitHub Release. The same workflow can also be run
+manually from the Actions tab (`workflow_dispatch`).
+
 ## Use
 
 `File > Open` (Ctrl+O), drag & drop a `.mmtsmap` onto the window, or pass a path
